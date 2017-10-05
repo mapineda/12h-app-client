@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
+import { Nav, Navbar } from "react-bootstrap";
+import RouteNavItem from "./components/RouteNavItem";
 import './App.css';
+import Routes from "./Routes";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>12 HELLO</h1>
-        </div>
-        <h2>Simplicity Reimagined</h2>
-        <p className="App-intro">
-          To begin, <strong>post</strong> a gig, <strong>discover</strong> an opportunity or <strong>initiate</strong> a call.
-        </p>
+      <div className='App container'>
+        <Navbar fluid collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to='/'>Scratch</Link>
+            </Navbar.Brand>
+            < Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <RouteNavItem href="/signup">Signup</RouteNavItem>
+              <RouteNavItem href="/login">Login</RouteNavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Routes />
       </div>
     );
   }
